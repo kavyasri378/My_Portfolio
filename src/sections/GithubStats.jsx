@@ -26,7 +26,7 @@ const GithubStats = () => {
   const recentRepos = [
     { name: "Api_Design_Thinking.git", desc: "A functional playground for low-latency testing, load modeling, and mock response validation.", stars: 12, forks: 4 },
     { name: "Emotional-awareness-system.git", desc: "AI-driven smart classroom detecting real-time learning focus and fatigue patterns.", stars: 10, forks: 2 },
-    { name: "feedback-system.git", desc: "A feedback reporting suite with sentiment classification and analytics widgets.", stars: 8, forks: 1 }
+    { name: "StudentProfileSystemFrontend.git", desc: "A full-stack student profile CRUD app with Node.js, Express, MongoDB, and dynamic frontend integration.", stars: 8, forks: 1 }
   ];
 
   return (

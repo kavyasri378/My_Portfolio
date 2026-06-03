@@ -106,16 +106,16 @@ export const PROJECTS = [
     demo: "https://github.com/kavyasri378/Emotional-awareness-system.git"
   },
   {
-    title: "Customer Feedback System",
-    tagline: "SaaS Utilities",
-    tech: ["Python", "Django", "JavaScript", "SQLite"],
+    title: "Student Profile Management System",
+    tagline: "Full-Stack CRUD Application",
+    tech: ["HTML", "CSS", "JavaScript", "Node.js", "Express.js", "MongoDB"],
     features: [
-      "Feedback Submission: Form wizard with intuitive sentiment slider and categorizations.",
-      "Admin Dashboard: Modern charts tracking feedback volumes, trends, and resolutions.",
-      "Analytics System: Statistical metrics measuring response times and resolution index ratings."
+      "Student Profile CRUD: Add, view, update, and delete student records through a clean web interface.",
+      "API Integration: Connected frontend forms with backend Express APIs for seamless data management.",
+      "MongoDB Storage: Persisted student profiles in MongoDB for reliable full-stack functionality."
     ],
-    github: "https://github.com/kavyasri378/feedback-system.git",
-    demo: "https://github.com/kavyasri378/feedback-system.git"
+    github: "https://github.com/kavyasri378/StudentProfileSystemFrontend.git",
+    demo: "https://student-profile-system-frontend-omq.vercel.app/login"
   }
 ];
 

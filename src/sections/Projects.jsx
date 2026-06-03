@@ -75,7 +75,7 @@ const ProjectIllustration = ({ type }) => {
     );
   }
 
-  // Customer Feedback System
+  // Student Profile Management System
   return (
     <svg className="w-full h-full" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="400" height="200" rx="16" fill="#04011a" />

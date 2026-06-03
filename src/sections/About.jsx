@@ -81,7 +81,7 @@ const About = () => {
                     <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border border-[#030014] shadow-glow-blue" />
                     <div className="flex justify-between items-start flex-wrap gap-2">
                       <h5 className="font-bold text-white text-lg">{PERSONAL_INFO.college}</h5>
-                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-gray-400 font-semibold">2023 - 2027</span>
+                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-gray-400 font-semibold">2024 - 2028</span>
                     </div>
                     <p className="text-sm text-cyan-400 font-medium mt-1">{PERSONAL_INFO.degree}</p>
                     <p className="text-sm text-gray-400 mt-2 leading-relaxed">

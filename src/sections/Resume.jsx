@@ -239,13 +239,13 @@ const triggerResumePrint = () => {
 
       <table class="entry-table" style="margin-top: 4px;">
         <tr>
-          <td class="entry-left">Customer Feedback System &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://github.com/kavyasri378/feedback-system.git" target="_blank">Github</a></td>
-          <td class="entry-right">November 2025</td>
+          <td class="entry-left">Student Profile Management System &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://github.com/kavyasri378/StudentProfileSystemFrontend.git" target="_blank">Github</a></td>
+          <td class="entry-right">March 2026</td>
         </tr>
       </table>
       <div class="desc-text">
-        <strong>TechStack : Python, Django, HTML, CSS, JavaScript, SQLite</strong><br/>
-        Built a web-based feedback management platform that enables users to submit ratings and comments, while allowing administrators to view feedback, manage responses, and perform basic analytics to improve service quality.
+        <strong>TechStack : HTML, CSS, JavaScript, Node.js, Express.js, MongoDB</strong><br/>
+        Developed a full-stack web application for adding, viewing, updating, and deleting student profiles using a modern web interface and backend APIs with database storage.
       </div>
 
       <!-- Achievements Section -->
