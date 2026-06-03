@@ -130,21 +130,21 @@ export const CERTIFICATIONS = [
   {
     title: "Introduction to Java",
     issuer: "Microsoft Azure Academy",
-    date: "2024",
+    date: "2025",
     color: "from-blue-600 to-cyan-500",
     link: "https://drive.google.com/file/d/1DNzLx7eDqxGy2uTpDn-b1Qs3LG57BHRW/view?usp=sharing"
   },
   {
     title: "SQL Basics",
     issuer: "HackerRank",
-    date: "2024",
+    date: "2025",
     color: "from-green-600 to-emerald-400",
     link: "https://drive.google.com/file/d/1bL3N54raw3QRz8KenSdZP1m_B1QZsfXD/view?usp=sharing"
   },
   {
     title: "Mastering DSA using C & C++",
     issuer: "Udemy / Technical Academy",
-    date: "2024",
+    date: "2025",
     color: "from-purple-600 to-indigo-500",
     link: "https://drive.google.com/file/d/1wVWl3GJawYjYBwqh_n59EWnMZSt99dvS/view?usp=sharing"
   }
@@ -155,14 +155,14 @@ export const ACHIEVEMENTS = [
     title: "Web Designer Day Hackathon",
     award: "1st Place Winner",
     desc: "Designed and built an exceptional modern web experience matching strict UI guidelines in a high-pressure 24-hour hackathon.",
-    date: "2025",
+    date: "2026",
     icon: "FaAward"
   },
   {
     title: "NPTEL National Certification",
     award: "Gold Badge Holder",
     desc: "Secured top elite category rank and Gold badge in a national level rigorous Computer Science course assessment.",
-    date: "2024",
+    date: "2025",
     icon: "FaMedal"
   },
   {
@@ -195,7 +195,7 @@ export const CODING_PROFILES = [
   },
   {
     platform: "LeetCode",
-    solved: 300,
+    solved: 340,
     solvedSuffix: "+",
     statLabel: "Problems Solved",
     badges: [

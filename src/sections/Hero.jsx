@@ -4,6 +4,7 @@ import { FaJava, FaReact, FaNodeJs, FaPython, FaGithub, FaLinkedin, FaEnvelope }
 import { SiSpringboot } from 'react-icons/si';
 import { PERSONAL_INFO } from '../utils/data';
 import { triggerResumePrint } from './Resume';
+import profileImg from '../assets/profile.jpg';
 
 const Hero = () => {
   const [textIndex, setTextIndex] = useState(0);
@@ -149,18 +150,23 @@ const Hero = () => {
             className="relative z-10 w-[240px] sm:w-[300px] h-[240px] sm:h-[300px] rounded-[2rem] bg-gradient-to-tr from-blue-900/40 via-purple-900/30 to-black/80 border border-white/10 backdrop-blur-xl flex flex-col items-center justify-center overflow-hidden shadow-2xl"
           >
             {/* Inner aesthetic borders */}
-            <div className="absolute inset-2 border border-white/5 rounded-[1.7rem] pointer-events-none" />
-            <div className="absolute inset-4 border border-dashed border-white/5 rounded-[1.4rem] pointer-events-none animate-spin-slow" />
+            <div className="absolute inset-2 border border-white/5 rounded-[1.7rem] pointer-events-none z-20" />
+            <div className="absolute inset-4 border border-dashed border-white/5 rounded-[1.4rem] pointer-events-none animate-spin-slow z-20" />
             
-            {/* Center Monogram Logo */}
-            <div className="relative text-7xl sm:text-8xl font-black font-sans text-gradient select-none tracking-tighter">
-              KD
-            </div>
+            {/* Profile Image */}
+            <img 
+              src={profileImg} 
+              alt={PERSONAL_INFO.name} 
+              className="w-full h-full object-cover object-top opacity-100 transition-opacity duration-300"
+            />
+            
+            {/* Gradient Overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none z-10" />
             
             {/* Details overlay */}
-            <div className="absolute bottom-6 text-center">
-              <div className="text-xs text-blue-400 font-bold uppercase tracking-widest">{PERSONAL_INFO.role}</div>
-              <div className="text-[10px] text-gray-500 mt-1">{PERSONAL_INFO.college}</div>
+            <div className="absolute bottom-6 text-center z-20">
+              <div className="text-xs text-cyan-300 font-bold uppercase tracking-widest">{PERSONAL_INFO.role}</div>
+              <div className="text-[10px] text-gray-300 mt-1">{PERSONAL_INFO.college}</div>
             </div>
           </motion.div>
 
