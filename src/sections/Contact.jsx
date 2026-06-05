@@ -4,42 +4,76 @@ import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaCheckCircle, FaGithub, FaLi
 import confetti from 'canvas-confetti';
 import { PERSONAL_INFO } from '../utils/data';
 
+// Web3Forms Access Key - Get it from https://web3forms.com
+const WEB3FORMS_ACCESS_KEY = 'ea96c8c5-7f69-4165-8886-7d1f800eafeb';
+
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [toast, setToast] = useState({ show: false, message: '' });
+  const [toast, setToast] = useState({ show: false, message: '', isError: false });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const showToast = (message) => {
-    setToast({ show: true, message });
-    setTimeout(() => setToast({ show: false, message: '' }), 4000);
+  const showToast = (message, isError = false) => {
+    setToast({ show: true, message, isError });
+    setTimeout(() => setToast({ show: false, message: '', isError: false }), 4000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (!form.name || !form.email || !form.message) {
-      showToast("Please fill in all fields.");
+      showToast("Please fill in all fields.", true);
       return;
     }
 
-    const subject = `Portfolio Inquiry from ${form.name}`;
-    const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`;
-    const mailtoLink = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (WEB3FORMS_ACCESS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+      showToast("Web3Forms not configured. Please add your access key.", true);
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
-      window.open(mailtoLink, '_blank');
-      setIsSubmitting(true);
-      setTimeout(() => {
-        setIsSubmitting(false);
-        showToast("Your email client should open now. Send the message to complete the contact.");
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          subject: `Portfolio Inquiry from ${form.name}`,
+          to_email: PERSONAL_INFO.email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        showToast("Message sent successfully! I'll get back to you soon.");
+        
+        // Trigger confetti animation
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+
+        // Reset form
         setForm({ name: '', email: '', message: '' });
-      }, 800);
+      } else {
+        showToast("Failed to send message. Please try again.", true);
+      }
     } catch (error) {
+      console.error('Error sending message:', error);
+      showToast("Failed to send message. Please try again.", true);
+    } finally {
       setIsSubmitting(false);
-      showToast("Unable to open email client. Please send an email manually.");
     }
   };
 
@@ -218,12 +252,12 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             className={`fixed bottom-6 right-6 p-4 rounded-xl border bg-black/90 backdrop-blur-md text-white shadow-glow-cyan z-50 flex items-center gap-3 ${
-              toast.message.includes('fill') ? 'border-red-500/30' : 'border-green-500/30'
+              toast.isError ? 'border-red-500/30' : 'border-green-500/30'
             }`}
           >
-            <FaCheckCircle className={toast.message.includes('fill') ? 'text-red-500 text-xl' : 'text-green-500 text-xl'} />
+            <FaCheckCircle className={toast.isError ? 'text-red-500 text-xl' : 'text-green-500 text-xl'} />
             <div>
-              <div className="font-bold text-sm">{toast.message.includes('fill') ? 'Verification Error' : 'Success!'}</div>
+              <div className="font-bold text-sm">{toast.isError ? 'Error' : 'Success!'}</div>
               <div className="text-xs text-gray-400">{toast.message}</div>
             </div>
           </motion.div>
